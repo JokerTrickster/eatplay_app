@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/di/injection_container.dart' as di;
 import '../bloc/history_bloc.dart';
 import '../../domain/entities/history_item.dart';
+import 'add_history_page.dart';
 
 class HistoryPage extends StatelessWidget {
   const HistoryPage({Key? key}) : super(key: key);
@@ -30,6 +31,17 @@ class HistoryPage extends StatelessWidget {
               orElse: () => const SizedBox(),
             );
           },
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const AddHistoryPage(),
+              ),
+            );
+          },
+          backgroundColor: Colors.orange,
+          child: const Icon(Icons.add, color: Colors.white),
         ),
       ),
     );

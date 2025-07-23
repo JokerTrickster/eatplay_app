@@ -19,32 +19,38 @@ mixin _$HistoryEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadHistory,
+    required TResult Function(HistoryItem historyItem) addHistory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadHistory,
+    TResult? Function(HistoryItem historyItem)? addHistory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadHistory,
+    TResult Function(HistoryItem historyItem)? addHistory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadHistory value) loadHistory,
+    required TResult Function(_AddHistory value) addHistory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadHistory value)? loadHistory,
+    TResult? Function(_AddHistory value)? addHistory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadHistory value)? loadHistory,
+    TResult Function(_AddHistory value)? addHistory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,6 +119,7 @@ class _$LoadHistoryImpl implements _LoadHistory {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadHistory,
+    required TResult Function(HistoryItem historyItem) addHistory,
   }) {
     return loadHistory();
   }
@@ -121,6 +128,7 @@ class _$LoadHistoryImpl implements _LoadHistory {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadHistory,
+    TResult? Function(HistoryItem historyItem)? addHistory,
   }) {
     return loadHistory?.call();
   }
@@ -129,6 +137,7 @@ class _$LoadHistoryImpl implements _LoadHistory {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadHistory,
+    TResult Function(HistoryItem historyItem)? addHistory,
     required TResult orElse(),
   }) {
     if (loadHistory != null) {
@@ -141,6 +150,7 @@ class _$LoadHistoryImpl implements _LoadHistory {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadHistory value) loadHistory,
+    required TResult Function(_AddHistory value) addHistory,
   }) {
     return loadHistory(this);
   }
@@ -149,6 +159,7 @@ class _$LoadHistoryImpl implements _LoadHistory {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadHistory value)? loadHistory,
+    TResult? Function(_AddHistory value)? addHistory,
   }) {
     return loadHistory?.call(this);
   }
@@ -157,6 +168,7 @@ class _$LoadHistoryImpl implements _LoadHistory {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadHistory value)? loadHistory,
+    TResult Function(_AddHistory value)? addHistory,
     required TResult orElse(),
   }) {
     if (loadHistory != null) {
@@ -168,6 +180,147 @@ class _$LoadHistoryImpl implements _LoadHistory {
 
 abstract class _LoadHistory implements HistoryEvent {
   const factory _LoadHistory() = _$LoadHistoryImpl;
+}
+
+/// @nodoc
+abstract class _$$AddHistoryImplCopyWith<$Res> {
+  factory _$$AddHistoryImplCopyWith(
+          _$AddHistoryImpl value, $Res Function(_$AddHistoryImpl) then) =
+      __$$AddHistoryImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({HistoryItem historyItem});
+}
+
+/// @nodoc
+class __$$AddHistoryImplCopyWithImpl<$Res>
+    extends _$HistoryEventCopyWithImpl<$Res, _$AddHistoryImpl>
+    implements _$$AddHistoryImplCopyWith<$Res> {
+  __$$AddHistoryImplCopyWithImpl(
+      _$AddHistoryImpl _value, $Res Function(_$AddHistoryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HistoryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? historyItem = null,
+  }) {
+    return _then(_$AddHistoryImpl(
+      null == historyItem
+          ? _value.historyItem
+          : historyItem // ignore: cast_nullable_to_non_nullable
+              as HistoryItem,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddHistoryImpl implements _AddHistory {
+  const _$AddHistoryImpl(this.historyItem);
+
+  @override
+  final HistoryItem historyItem;
+
+  @override
+  String toString() {
+    return 'HistoryEvent.addHistory(historyItem: $historyItem)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddHistoryImpl &&
+            (identical(other.historyItem, historyItem) ||
+                other.historyItem == historyItem));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, historyItem);
+
+  /// Create a copy of HistoryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddHistoryImplCopyWith<_$AddHistoryImpl> get copyWith =>
+      __$$AddHistoryImplCopyWithImpl<_$AddHistoryImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadHistory,
+    required TResult Function(HistoryItem historyItem) addHistory,
+  }) {
+    return addHistory(historyItem);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadHistory,
+    TResult? Function(HistoryItem historyItem)? addHistory,
+  }) {
+    return addHistory?.call(historyItem);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadHistory,
+    TResult Function(HistoryItem historyItem)? addHistory,
+    required TResult orElse(),
+  }) {
+    if (addHistory != null) {
+      return addHistory(historyItem);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadHistory value) loadHistory,
+    required TResult Function(_AddHistory value) addHistory,
+  }) {
+    return addHistory(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadHistory value)? loadHistory,
+    TResult? Function(_AddHistory value)? addHistory,
+  }) {
+    return addHistory?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadHistory value)? loadHistory,
+    TResult Function(_AddHistory value)? addHistory,
+    required TResult orElse(),
+  }) {
+    if (addHistory != null) {
+      return addHistory(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddHistory implements HistoryEvent {
+  const factory _AddHistory(final HistoryItem historyItem) = _$AddHistoryImpl;
+
+  HistoryItem get historyItem;
+
+  /// Create a copy of HistoryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AddHistoryImplCopyWith<_$AddHistoryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
