@@ -4,6 +4,7 @@ import '../../domain/entities/user.dart';
 import '../../domain/entities/login_params.dart';
 import '../../domain/usecases/login_usecase.dart';
 import '../../domain/usecases/get_current_user_usecase.dart';
+import '../../domain/usecases/logout_usecase.dart';
 import '../../../../core/error/failures.dart';
 
 part 'auth_event.dart';
@@ -13,10 +14,12 @@ part 'auth_bloc.freezed.dart';
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final LoginUseCase loginUseCase;
   final GetCurrentUserUseCase getCurrentUserUseCase;
+  final LogoutUseCase logoutUseCase;
 
   AuthBloc({
     required this.loginUseCase,
     required this.getCurrentUserUseCase,
+    required this.logoutUseCase,
   }) : super(const AuthState.initial()) {
     on<AuthEvent>((event, emit) async {
       await event.map(
@@ -57,6 +60,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   Future<void> _onLogout(_Logout event, Emitter<AuthState> emit) async {
-    emit(const AuthState.unauthenticated());
+    emit(const AuthState.loading());
+
+    final result = await logoutUseCase();
+
+    result.fold(
+      (failure) => emit(AuthState.error(failure)),
+      (_) => emit(const AuthState.unauthenticated()),
+    );
   }
 }

@@ -94,4 +94,14 @@ class AuthRepositoryImpl implements AuthRepository {
       return Left(CacheFailure());
     }
   }
+
+  @override
+  Future<Either<Failure, bool>> getRememberMe() async {
+    try {
+      final rememberMe = await localDataSource.getRememberMe();
+      return Right(rememberMe);
+    } catch (e) {
+      return Left(CacheFailure());
+    }
+  }
 }

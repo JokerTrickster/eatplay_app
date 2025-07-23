@@ -3,21 +3,33 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
+import '../config/environment.dart';
+import '../utils/flavor_utils.dart';
+import '../network/api_client.dart';
 import '../../features/auth/data/datasources/auth_remote_datasource.dart';
 import '../../features/auth/data/datasources/auth_local_datasource.dart';
 import '../../features/auth/data/repositories/auth_repository_impl.dart';
 import '../../features/auth/domain/repositories/auth_repository.dart';
 import '../../features/auth/domain/usecases/login_usecase.dart';
 import '../../features/auth/domain/usecases/get_current_user_usecase.dart';
+import '../../features/auth/domain/usecases/logout_usecase.dart';
+import '../../features/auth/domain/usecases/get_remember_me_usecase.dart';
 import '../../features/auth/presentation/bloc/auth_bloc.dart';
 import '../network/network_info.dart';
 
 final getIt = GetIt.instance;
 
 Future<void> init() async {
+  // Environment 설정
+  final environment = FlavorUtils.getEnvironment();
+  EnvironmentConfig.setEnvironment(environment);
+
   // Core
   getIt.registerLazySingleton<NetworkInfo>(
       () => NetworkInfoImpl(InternetConnectionChecker()));
+
+  // API Client
+  getIt.registerLazySingleton(() => ApiClient());
 
   // External
   final sharedPreferences = await SharedPreferences.getInstance();
@@ -27,7 +39,7 @@ Future<void> init() async {
   // Auth Feature
   // Data sources
   getIt.registerLazySingleton<AuthRemoteDataSource>(
-    () => AuthRemoteDataSourceImpl(client: getIt()),
+    () => AuthRemoteDataSourceImpl(apiClient: getIt()),
   );
   getIt.registerLazySingleton<AuthLocalDataSource>(
     () => AuthLocalDataSourceImpl(sharedPreferences: getIt()),
@@ -43,10 +55,13 @@ Future<void> init() async {
   // Use cases
   getIt.registerLazySingleton(() => LoginUseCase(getIt()));
   getIt.registerLazySingleton(() => GetCurrentUserUseCase(getIt()));
+  getIt.registerLazySingleton(() => LogoutUseCase(getIt()));
+  getIt.registerLazySingleton(() => GetRememberMeUseCase(getIt()));
 
   // Bloc
   getIt.registerFactory(() => AuthBloc(
         loginUseCase: getIt(),
         getCurrentUserUseCase: getIt(),
+        logoutUseCase: getIt(),
       ));
 }

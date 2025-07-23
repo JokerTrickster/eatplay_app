@@ -1,5 +1,5 @@
-import 'package:http/http.dart' as http;
 import 'dart:convert';
+import '../../../../core/network/api_client.dart';
 import '../models/user_model.dart';
 
 abstract class AuthRemoteDataSource {
@@ -8,52 +8,40 @@ abstract class AuthRemoteDataSource {
 }
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
-  final http.Client client;
-  final String baseUrl = 'https://api.example.com'; // 실제 API URL로 변경
+  final ApiClient apiClient;
 
-  AuthRemoteDataSourceImpl({required this.client});
+  AuthRemoteDataSourceImpl({required this.apiClient});
 
   @override
   Future<UserModel> login(String email, String password) async {
-    try {
-      final response = await client.post(
-        Uri.parse('$baseUrl/auth/login'),
-        headers: {'Content-Type': 'application/json'},
-        body: json.encode({
-          'email': email,
-          'password': password,
-        }),
+    // 임시 로그인 로직
+    if (email == 'test@test.com' && password == '456123') {
+      // 성공 시 임시 사용자 데이터 반환
+      return UserModel(
+        id: '1',
+        email: email,
+        name: '테스트 사용자',
+        profileImage: null,
       );
-
-      if (response.statusCode == 200) {
-        final jsonData = json.decode(response.body);
-        return UserModel.fromJson(jsonData['user']);
-      } else {
-        throw Exception('Login failed');
-      }
-    } catch (e) {
-      throw Exception('Network error: $e');
+    } else {
+      throw Exception('Invalid credentials');
     }
   }
 
   @override
   Future<UserModel> register(String email, String password, String name) async {
     try {
-      final response = await client.post(
-        Uri.parse('$baseUrl/auth/register'),
-        headers: {'Content-Type': 'application/json'},
-        body: json.encode({
-          'email': email,
-          'password': password,
-          'name': name,
-        }),
-      );
+      final response = await apiClient.post('/auth/register', body: {
+        'email': email,
+        'password': password,
+        'name': name,
+      });
 
       if (response.statusCode == 201) {
         final jsonData = json.decode(response.body);
         return UserModel.fromJson(jsonData['user']);
       } else {
-        throw Exception('Registration failed');
+        throw Exception('Registration failed: ${response.statusCode}');
       }
     } catch (e) {
       throw Exception('Network error: $e');

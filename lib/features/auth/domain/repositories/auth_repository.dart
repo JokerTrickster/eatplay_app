@@ -10,4 +10,5 @@ abstract class AuthRepository {
   Future<Either<Failure, User?>> getCurrentUser();
   Future<Either<Failure, Unit>> saveUserToCache(User user);
   Future<Either<Failure, Unit>> clearCache();
+  Future<Either<Failure, bool>> getRememberMe();
 }

@@ -33,6 +33,7 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
   @override
   Future<void> clearCache() async {
     await sharedPreferences.remove('CACHED_USER');
+    await sharedPreferences.remove('REMEMBER_ME');
   }
 
   @override
