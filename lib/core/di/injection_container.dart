@@ -16,6 +16,11 @@ import '../../features/auth/domain/usecases/logout_usecase.dart';
 import '../../features/auth/domain/usecases/get_remember_me_usecase.dart';
 import '../../features/auth/presentation/bloc/auth_bloc.dart';
 import '../network/network_info.dart';
+import '../../features/history/data/datasources/history_local_datasource.dart';
+import '../../features/history/data/repositories/history_repository_impl.dart';
+import '../../features/history/domain/repositories/history_repository.dart';
+import '../../features/history/domain/usecases/get_history_items_usecase.dart';
+import '../../features/history/presentation/bloc/history_bloc.dart';
 
 final getIt = GetIt.instance;
 
@@ -64,4 +69,17 @@ Future<void> init() async {
         getCurrentUserUseCase: getIt(),
         logoutUseCase: getIt(),
       ));
+
+  // History Feature
+  getIt.registerLazySingleton<HistoryLocalDataSource>(
+    () => HistoryLocalDataSourceImpl(),
+  );
+
+  getIt.registerLazySingleton<HistoryRepository>(
+    () => HistoryRepositoryImpl(localDataSource: getIt()),
+  );
+
+  getIt.registerLazySingleton(() => GetHistoryItemsUseCase(getIt()));
+
+  getIt.registerFactory(() => HistoryBloc(getHistoryItemsUseCase: getIt()));
 }
