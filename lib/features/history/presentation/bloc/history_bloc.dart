@@ -17,6 +17,8 @@ class HistoryBloc extends Bloc<HistoryEvent, HistoryState> {
       await event.map(
         loadHistory: (e) async => await _onLoadHistory(e, emit),
         addHistory: (e) async => await _onAddHistory(e, emit),
+        updateHistory: (e) async => await _onUpdateHistory(e, emit),
+        deleteHistory: (e) async => await _onDeleteHistory(e, emit),
       );
     });
   }
@@ -35,7 +37,6 @@ class HistoryBloc extends Bloc<HistoryEvent, HistoryState> {
 
   Future<void> _onAddHistory(
       _AddHistory event, Emitter<HistoryState> emit) async {
-    // 현재 상태에서 새로운 히스토리 추가
     final currentState = state;
     currentState.maybeWhen(
       loaded: (historyItems) {
@@ -44,7 +45,37 @@ class HistoryBloc extends Bloc<HistoryEvent, HistoryState> {
         emit(HistoryState.loaded(updatedItems));
       },
       orElse: () {
-        // 로딩 중이거나 에러 상태면 새로 로드
+        add(const HistoryEvent.loadHistory());
+      },
+    );
+  }
+
+  Future<void> _onUpdateHistory(
+      _UpdateHistory event, Emitter<HistoryState> emit) async {
+    final currentState = state;
+    currentState.maybeWhen(
+      loaded: (historyItems) {
+        final updatedItems = historyItems.map((item) {
+          return item.id == event.historyItem.id ? event.historyItem : item;
+        }).toList();
+        emit(HistoryState.loaded(updatedItems));
+      },
+      orElse: () {
+        add(const HistoryEvent.loadHistory());
+      },
+    );
+  }
+
+  Future<void> _onDeleteHistory(
+      _DeleteHistory event, Emitter<HistoryState> emit) async {
+    final currentState = state;
+    currentState.maybeWhen(
+      loaded: (historyItems) {
+        final updatedItems =
+            historyItems.where((item) => item.id != event.historyId).toList();
+        emit(HistoryState.loaded(updatedItems));
+      },
+      orElse: () {
         add(const HistoryEvent.loadHistory());
       },
     );

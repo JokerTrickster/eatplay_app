@@ -20,18 +20,24 @@ mixin _$HistoryEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() loadHistory,
     required TResult Function(HistoryItem historyItem) addHistory,
+    required TResult Function(HistoryItem historyItem) updateHistory,
+    required TResult Function(String historyId) deleteHistory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadHistory,
     TResult? Function(HistoryItem historyItem)? addHistory,
+    TResult? Function(HistoryItem historyItem)? updateHistory,
+    TResult? Function(String historyId)? deleteHistory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadHistory,
     TResult Function(HistoryItem historyItem)? addHistory,
+    TResult Function(HistoryItem historyItem)? updateHistory,
+    TResult Function(String historyId)? deleteHistory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +45,24 @@ mixin _$HistoryEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadHistory value) loadHistory,
     required TResult Function(_AddHistory value) addHistory,
+    required TResult Function(_UpdateHistory value) updateHistory,
+    required TResult Function(_DeleteHistory value) deleteHistory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadHistory value)? loadHistory,
     TResult? Function(_AddHistory value)? addHistory,
+    TResult? Function(_UpdateHistory value)? updateHistory,
+    TResult? Function(_DeleteHistory value)? deleteHistory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadHistory value)? loadHistory,
     TResult Function(_AddHistory value)? addHistory,
+    TResult Function(_UpdateHistory value)? updateHistory,
+    TResult Function(_DeleteHistory value)? deleteHistory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +132,8 @@ class _$LoadHistoryImpl implements _LoadHistory {
   TResult when<TResult extends Object?>({
     required TResult Function() loadHistory,
     required TResult Function(HistoryItem historyItem) addHistory,
+    required TResult Function(HistoryItem historyItem) updateHistory,
+    required TResult Function(String historyId) deleteHistory,
   }) {
     return loadHistory();
   }
@@ -129,6 +143,8 @@ class _$LoadHistoryImpl implements _LoadHistory {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadHistory,
     TResult? Function(HistoryItem historyItem)? addHistory,
+    TResult? Function(HistoryItem historyItem)? updateHistory,
+    TResult? Function(String historyId)? deleteHistory,
   }) {
     return loadHistory?.call();
   }
@@ -138,6 +154,8 @@ class _$LoadHistoryImpl implements _LoadHistory {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadHistory,
     TResult Function(HistoryItem historyItem)? addHistory,
+    TResult Function(HistoryItem historyItem)? updateHistory,
+    TResult Function(String historyId)? deleteHistory,
     required TResult orElse(),
   }) {
     if (loadHistory != null) {
@@ -151,6 +169,8 @@ class _$LoadHistoryImpl implements _LoadHistory {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadHistory value) loadHistory,
     required TResult Function(_AddHistory value) addHistory,
+    required TResult Function(_UpdateHistory value) updateHistory,
+    required TResult Function(_DeleteHistory value) deleteHistory,
   }) {
     return loadHistory(this);
   }
@@ -160,6 +180,8 @@ class _$LoadHistoryImpl implements _LoadHistory {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadHistory value)? loadHistory,
     TResult? Function(_AddHistory value)? addHistory,
+    TResult? Function(_UpdateHistory value)? updateHistory,
+    TResult? Function(_DeleteHistory value)? deleteHistory,
   }) {
     return loadHistory?.call(this);
   }
@@ -169,6 +191,8 @@ class _$LoadHistoryImpl implements _LoadHistory {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadHistory value)? loadHistory,
     TResult Function(_AddHistory value)? addHistory,
+    TResult Function(_UpdateHistory value)? updateHistory,
+    TResult Function(_DeleteHistory value)? deleteHistory,
     required TResult orElse(),
   }) {
     if (loadHistory != null) {
@@ -253,6 +277,8 @@ class _$AddHistoryImpl implements _AddHistory {
   TResult when<TResult extends Object?>({
     required TResult Function() loadHistory,
     required TResult Function(HistoryItem historyItem) addHistory,
+    required TResult Function(HistoryItem historyItem) updateHistory,
+    required TResult Function(String historyId) deleteHistory,
   }) {
     return addHistory(historyItem);
   }
@@ -262,6 +288,8 @@ class _$AddHistoryImpl implements _AddHistory {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadHistory,
     TResult? Function(HistoryItem historyItem)? addHistory,
+    TResult? Function(HistoryItem historyItem)? updateHistory,
+    TResult? Function(String historyId)? deleteHistory,
   }) {
     return addHistory?.call(historyItem);
   }
@@ -271,6 +299,8 @@ class _$AddHistoryImpl implements _AddHistory {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadHistory,
     TResult Function(HistoryItem historyItem)? addHistory,
+    TResult Function(HistoryItem historyItem)? updateHistory,
+    TResult Function(String historyId)? deleteHistory,
     required TResult orElse(),
   }) {
     if (addHistory != null) {
@@ -284,6 +314,8 @@ class _$AddHistoryImpl implements _AddHistory {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadHistory value) loadHistory,
     required TResult Function(_AddHistory value) addHistory,
+    required TResult Function(_UpdateHistory value) updateHistory,
+    required TResult Function(_DeleteHistory value) deleteHistory,
   }) {
     return addHistory(this);
   }
@@ -293,6 +325,8 @@ class _$AddHistoryImpl implements _AddHistory {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadHistory value)? loadHistory,
     TResult? Function(_AddHistory value)? addHistory,
+    TResult? Function(_UpdateHistory value)? updateHistory,
+    TResult? Function(_DeleteHistory value)? deleteHistory,
   }) {
     return addHistory?.call(this);
   }
@@ -302,6 +336,8 @@ class _$AddHistoryImpl implements _AddHistory {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadHistory value)? loadHistory,
     TResult Function(_AddHistory value)? addHistory,
+    TResult Function(_UpdateHistory value)? updateHistory,
+    TResult Function(_DeleteHistory value)? deleteHistory,
     required TResult orElse(),
   }) {
     if (addHistory != null) {
@@ -320,6 +356,313 @@ abstract class _AddHistory implements HistoryEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddHistoryImplCopyWith<_$AddHistoryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateHistoryImplCopyWith<$Res> {
+  factory _$$UpdateHistoryImplCopyWith(
+          _$UpdateHistoryImpl value, $Res Function(_$UpdateHistoryImpl) then) =
+      __$$UpdateHistoryImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({HistoryItem historyItem});
+}
+
+/// @nodoc
+class __$$UpdateHistoryImplCopyWithImpl<$Res>
+    extends _$HistoryEventCopyWithImpl<$Res, _$UpdateHistoryImpl>
+    implements _$$UpdateHistoryImplCopyWith<$Res> {
+  __$$UpdateHistoryImplCopyWithImpl(
+      _$UpdateHistoryImpl _value, $Res Function(_$UpdateHistoryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HistoryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? historyItem = null,
+  }) {
+    return _then(_$UpdateHistoryImpl(
+      null == historyItem
+          ? _value.historyItem
+          : historyItem // ignore: cast_nullable_to_non_nullable
+              as HistoryItem,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateHistoryImpl implements _UpdateHistory {
+  const _$UpdateHistoryImpl(this.historyItem);
+
+  @override
+  final HistoryItem historyItem;
+
+  @override
+  String toString() {
+    return 'HistoryEvent.updateHistory(historyItem: $historyItem)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateHistoryImpl &&
+            (identical(other.historyItem, historyItem) ||
+                other.historyItem == historyItem));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, historyItem);
+
+  /// Create a copy of HistoryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateHistoryImplCopyWith<_$UpdateHistoryImpl> get copyWith =>
+      __$$UpdateHistoryImplCopyWithImpl<_$UpdateHistoryImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadHistory,
+    required TResult Function(HistoryItem historyItem) addHistory,
+    required TResult Function(HistoryItem historyItem) updateHistory,
+    required TResult Function(String historyId) deleteHistory,
+  }) {
+    return updateHistory(historyItem);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadHistory,
+    TResult? Function(HistoryItem historyItem)? addHistory,
+    TResult? Function(HistoryItem historyItem)? updateHistory,
+    TResult? Function(String historyId)? deleteHistory,
+  }) {
+    return updateHistory?.call(historyItem);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadHistory,
+    TResult Function(HistoryItem historyItem)? addHistory,
+    TResult Function(HistoryItem historyItem)? updateHistory,
+    TResult Function(String historyId)? deleteHistory,
+    required TResult orElse(),
+  }) {
+    if (updateHistory != null) {
+      return updateHistory(historyItem);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadHistory value) loadHistory,
+    required TResult Function(_AddHistory value) addHistory,
+    required TResult Function(_UpdateHistory value) updateHistory,
+    required TResult Function(_DeleteHistory value) deleteHistory,
+  }) {
+    return updateHistory(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadHistory value)? loadHistory,
+    TResult? Function(_AddHistory value)? addHistory,
+    TResult? Function(_UpdateHistory value)? updateHistory,
+    TResult? Function(_DeleteHistory value)? deleteHistory,
+  }) {
+    return updateHistory?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadHistory value)? loadHistory,
+    TResult Function(_AddHistory value)? addHistory,
+    TResult Function(_UpdateHistory value)? updateHistory,
+    TResult Function(_DeleteHistory value)? deleteHistory,
+    required TResult orElse(),
+  }) {
+    if (updateHistory != null) {
+      return updateHistory(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateHistory implements HistoryEvent {
+  const factory _UpdateHistory(final HistoryItem historyItem) =
+      _$UpdateHistoryImpl;
+
+  HistoryItem get historyItem;
+
+  /// Create a copy of HistoryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateHistoryImplCopyWith<_$UpdateHistoryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteHistoryImplCopyWith<$Res> {
+  factory _$$DeleteHistoryImplCopyWith(
+          _$DeleteHistoryImpl value, $Res Function(_$DeleteHistoryImpl) then) =
+      __$$DeleteHistoryImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String historyId});
+}
+
+/// @nodoc
+class __$$DeleteHistoryImplCopyWithImpl<$Res>
+    extends _$HistoryEventCopyWithImpl<$Res, _$DeleteHistoryImpl>
+    implements _$$DeleteHistoryImplCopyWith<$Res> {
+  __$$DeleteHistoryImplCopyWithImpl(
+      _$DeleteHistoryImpl _value, $Res Function(_$DeleteHistoryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HistoryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? historyId = null,
+  }) {
+    return _then(_$DeleteHistoryImpl(
+      null == historyId
+          ? _value.historyId
+          : historyId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteHistoryImpl implements _DeleteHistory {
+  const _$DeleteHistoryImpl(this.historyId);
+
+  @override
+  final String historyId;
+
+  @override
+  String toString() {
+    return 'HistoryEvent.deleteHistory(historyId: $historyId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteHistoryImpl &&
+            (identical(other.historyId, historyId) ||
+                other.historyId == historyId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, historyId);
+
+  /// Create a copy of HistoryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteHistoryImplCopyWith<_$DeleteHistoryImpl> get copyWith =>
+      __$$DeleteHistoryImplCopyWithImpl<_$DeleteHistoryImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadHistory,
+    required TResult Function(HistoryItem historyItem) addHistory,
+    required TResult Function(HistoryItem historyItem) updateHistory,
+    required TResult Function(String historyId) deleteHistory,
+  }) {
+    return deleteHistory(historyId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadHistory,
+    TResult? Function(HistoryItem historyItem)? addHistory,
+    TResult? Function(HistoryItem historyItem)? updateHistory,
+    TResult? Function(String historyId)? deleteHistory,
+  }) {
+    return deleteHistory?.call(historyId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadHistory,
+    TResult Function(HistoryItem historyItem)? addHistory,
+    TResult Function(HistoryItem historyItem)? updateHistory,
+    TResult Function(String historyId)? deleteHistory,
+    required TResult orElse(),
+  }) {
+    if (deleteHistory != null) {
+      return deleteHistory(historyId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadHistory value) loadHistory,
+    required TResult Function(_AddHistory value) addHistory,
+    required TResult Function(_UpdateHistory value) updateHistory,
+    required TResult Function(_DeleteHistory value) deleteHistory,
+  }) {
+    return deleteHistory(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadHistory value)? loadHistory,
+    TResult? Function(_AddHistory value)? addHistory,
+    TResult? Function(_UpdateHistory value)? updateHistory,
+    TResult? Function(_DeleteHistory value)? deleteHistory,
+  }) {
+    return deleteHistory?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadHistory value)? loadHistory,
+    TResult Function(_AddHistory value)? addHistory,
+    TResult Function(_UpdateHistory value)? updateHistory,
+    TResult Function(_DeleteHistory value)? deleteHistory,
+    required TResult orElse(),
+  }) {
+    if (deleteHistory != null) {
+      return deleteHistory(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteHistory implements HistoryEvent {
+  const factory _DeleteHistory(final String historyId) = _$DeleteHistoryImpl;
+
+  String get historyId;
+
+  /// Create a copy of HistoryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DeleteHistoryImplCopyWith<_$DeleteHistoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
