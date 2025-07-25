@@ -13,12 +13,10 @@ class HistoryRepositoryImpl implements HistoryRepository {
   @override
   Future<Either<Failure, List<HistoryItem>>> getHistoryItems() async {
     try {
-      final historyModels = await localDataSource.getHistoryItems();
-      final historyItems =
-          historyModels.map((model) => model.toEntity()).toList();
-      return Right(historyItems);
-    } catch (e) {
-      return Left(CacheFailure());
+      final items = await localDataSource.getHistoryItems();
+      return Right(items.map((model) => model.toEntity()).toList());
+    } on Exception catch (e) {
+      return Left(CacheFailure('캐시에서 데이터를 불러오는데 실패했습니다: $e'));
     }
   }
 }

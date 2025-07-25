@@ -110,13 +110,17 @@ class _AddHistoryPageState extends State<AddHistoryPage> {
       // TODO: 히스토리 저장 로직 구현
       final historyItem = HistoryItem(
         id: DateTime.now().millisecondsSinceEpoch.toString(),
+        title: _titleController.text,
+        description: _reviewController.text,
+        date: DateTime.now(),
         restaurantName: _titleController.text,
-        visitDate:
-            '${_selectedDate.year}-${_selectedDate.month.toString().padLeft(2, '0')}-${_selectedDate.day.toString().padLeft(2, '0')}',
+        visitDate: DateTime.now().toString().split(' ')[0],
         rating: _rating,
-        review: _reviewController.text,
-        imageUrl: _selectedImages.isNotEmpty ? _selectedImages.first.path : '',
         category: _selectedCategory,
+        review: _reviewController.text,
+        latitude: null,
+        longitude: null,
+        imageUrl: null,
       );
 
       // Bloc에 저장 이벤트 발생

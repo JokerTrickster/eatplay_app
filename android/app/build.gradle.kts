@@ -21,7 +21,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.eatplay_app"
-        minSdk = 21  // 이 줄이 중요합니다
+        minSdk = 23  // 21에서 23으로 변경
         targetSdk = 35
         versionCode = 1
         versionName = "1.0.0"
@@ -71,4 +71,14 @@ android {
 
 flutter {
     source = "../.."
+}
+
+repositories {
+    google()
+    mavenCentral()
+    maven { url = uri("https://devrepo.kakao.com/nexus/repository/kakaomap-releases/") }
+}
+
+dependencies {
+    implementation("com.kakao.maps.open:android:2.12.8")
 }

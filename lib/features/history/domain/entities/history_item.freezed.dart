@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'history_item_model.dart';
+part of 'history_item.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,8 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-HistoryItemModel _$HistoryItemModelFromJson(Map<String, dynamic> json) {
-  return _HistoryItemModel.fromJson(json);
-}
-
 /// @nodoc
-mixin _$HistoryItemModel {
+mixin _$HistoryItem {
   String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
@@ -33,21 +29,18 @@ mixin _$HistoryItemModel {
   String get category => throw _privateConstructorUsedError;
   String get review => throw _privateConstructorUsedError;
 
-  /// Serializes this HistoryItemModel to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of HistoryItemModel
+  /// Create a copy of HistoryItem
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $HistoryItemModelCopyWith<HistoryItemModel> get copyWith =>
+  $HistoryItemCopyWith<HistoryItem> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $HistoryItemModelCopyWith<$Res> {
-  factory $HistoryItemModelCopyWith(
-          HistoryItemModel value, $Res Function(HistoryItemModel) then) =
-      _$HistoryItemModelCopyWithImpl<$Res, HistoryItemModel>;
+abstract class $HistoryItemCopyWith<$Res> {
+  factory $HistoryItemCopyWith(
+          HistoryItem value, $Res Function(HistoryItem) then) =
+      _$HistoryItemCopyWithImpl<$Res, HistoryItem>;
   @useResult
   $Res call(
       {String id,
@@ -65,16 +58,16 @@ abstract class $HistoryItemModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$HistoryItemModelCopyWithImpl<$Res, $Val extends HistoryItemModel>
-    implements $HistoryItemModelCopyWith<$Res> {
-  _$HistoryItemModelCopyWithImpl(this._value, this._then);
+class _$HistoryItemCopyWithImpl<$Res, $Val extends HistoryItem>
+    implements $HistoryItemCopyWith<$Res> {
+  _$HistoryItemCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of HistoryItemModel
+  /// Create a copy of HistoryItem
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -146,11 +139,11 @@ class _$HistoryItemModelCopyWithImpl<$Res, $Val extends HistoryItemModel>
 }
 
 /// @nodoc
-abstract class _$$HistoryItemModelImplCopyWith<$Res>
-    implements $HistoryItemModelCopyWith<$Res> {
-  factory _$$HistoryItemModelImplCopyWith(_$HistoryItemModelImpl value,
-          $Res Function(_$HistoryItemModelImpl) then) =
-      __$$HistoryItemModelImplCopyWithImpl<$Res>;
+abstract class _$$HistoryItemImplCopyWith<$Res>
+    implements $HistoryItemCopyWith<$Res> {
+  factory _$$HistoryItemImplCopyWith(
+          _$HistoryItemImpl value, $Res Function(_$HistoryItemImpl) then) =
+      __$$HistoryItemImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -169,14 +162,14 @@ abstract class _$$HistoryItemModelImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$HistoryItemModelImplCopyWithImpl<$Res>
-    extends _$HistoryItemModelCopyWithImpl<$Res, _$HistoryItemModelImpl>
-    implements _$$HistoryItemModelImplCopyWith<$Res> {
-  __$$HistoryItemModelImplCopyWithImpl(_$HistoryItemModelImpl _value,
-      $Res Function(_$HistoryItemModelImpl) _then)
+class __$$HistoryItemImplCopyWithImpl<$Res>
+    extends _$HistoryItemCopyWithImpl<$Res, _$HistoryItemImpl>
+    implements _$$HistoryItemImplCopyWith<$Res> {
+  __$$HistoryItemImplCopyWithImpl(
+      _$HistoryItemImpl _value, $Res Function(_$HistoryItemImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of HistoryItemModel
+  /// Create a copy of HistoryItem
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -194,7 +187,7 @@ class __$$HistoryItemModelImplCopyWithImpl<$Res>
     Object? category = null,
     Object? review = null,
   }) {
-    return _then(_$HistoryItemModelImpl(
+    return _then(_$HistoryItemImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -248,9 +241,9 @@ class __$$HistoryItemModelImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$HistoryItemModelImpl implements _HistoryItemModel {
-  const _$HistoryItemModelImpl(
+
+class _$HistoryItemImpl implements _HistoryItem {
+  const _$HistoryItemImpl(
       {required this.id,
       required this.title,
       required this.description,
@@ -263,9 +256,6 @@ class _$HistoryItemModelImpl implements _HistoryItemModel {
       required this.rating,
       required this.category,
       required this.review});
-
-  factory _$HistoryItemModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$HistoryItemModelImplFromJson(json);
 
   @override
   final String id;
@@ -295,14 +285,14 @@ class _$HistoryItemModelImpl implements _HistoryItemModel {
 
   @override
   String toString() {
-    return 'HistoryItemModel(id: $id, title: $title, description: $description, date: $date, latitude: $latitude, longitude: $longitude, imageUrl: $imageUrl, restaurantName: $restaurantName, visitDate: $visitDate, rating: $rating, category: $category, review: $review)';
+    return 'HistoryItem(id: $id, title: $title, description: $description, date: $date, latitude: $latitude, longitude: $longitude, imageUrl: $imageUrl, restaurantName: $restaurantName, visitDate: $visitDate, rating: $rating, category: $category, review: $review)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$HistoryItemModelImpl &&
+            other is _$HistoryItemImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
@@ -324,7 +314,6 @@ class _$HistoryItemModelImpl implements _HistoryItemModel {
             (identical(other.review, review) || other.review == review));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -341,25 +330,17 @@ class _$HistoryItemModelImpl implements _HistoryItemModel {
       category,
       review);
 
-  /// Create a copy of HistoryItemModel
+  /// Create a copy of HistoryItem
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$HistoryItemModelImplCopyWith<_$HistoryItemModelImpl> get copyWith =>
-      __$$HistoryItemModelImplCopyWithImpl<_$HistoryItemModelImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$HistoryItemModelImplToJson(
-      this,
-    );
-  }
+  _$$HistoryItemImplCopyWith<_$HistoryItemImpl> get copyWith =>
+      __$$HistoryItemImplCopyWithImpl<_$HistoryItemImpl>(this, _$identity);
 }
 
-abstract class _HistoryItemModel implements HistoryItemModel {
-  const factory _HistoryItemModel(
+abstract class _HistoryItem implements HistoryItem {
+  const factory _HistoryItem(
       {required final String id,
       required final String title,
       required final String description,
@@ -371,10 +352,7 @@ abstract class _HistoryItemModel implements HistoryItemModel {
       required final String visitDate,
       required final double rating,
       required final String category,
-      required final String review}) = _$HistoryItemModelImpl;
-
-  factory _HistoryItemModel.fromJson(Map<String, dynamic> json) =
-      _$HistoryItemModelImpl.fromJson;
+      required final String review}) = _$HistoryItemImpl;
 
   @override
   String get id;
@@ -401,10 +379,10 @@ abstract class _HistoryItemModel implements HistoryItemModel {
   @override
   String get review;
 
-  /// Create a copy of HistoryItemModel
+  /// Create a copy of HistoryItem
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$HistoryItemModelImplCopyWith<_$HistoryItemModelImpl> get copyWith =>
+  _$$HistoryItemImplCopyWith<_$HistoryItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -213,6 +213,8 @@ abstract class _$$AddHistoryImplCopyWith<$Res> {
       __$$AddHistoryImplCopyWithImpl<$Res>;
   @useResult
   $Res call({HistoryItem historyItem});
+
+  $HistoryItemCopyWith<$Res> get historyItem;
 }
 
 /// @nodoc
@@ -236,6 +238,16 @@ class __$$AddHistoryImplCopyWithImpl<$Res>
           : historyItem // ignore: cast_nullable_to_non_nullable
               as HistoryItem,
     ));
+  }
+
+  /// Create a copy of HistoryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $HistoryItemCopyWith<$Res> get historyItem {
+    return $HistoryItemCopyWith<$Res>(_value.historyItem, (value) {
+      return _then(_value.copyWith(historyItem: value));
+    });
   }
 }
 
@@ -366,6 +378,8 @@ abstract class _$$UpdateHistoryImplCopyWith<$Res> {
       __$$UpdateHistoryImplCopyWithImpl<$Res>;
   @useResult
   $Res call({HistoryItem historyItem});
+
+  $HistoryItemCopyWith<$Res> get historyItem;
 }
 
 /// @nodoc
@@ -389,6 +403,16 @@ class __$$UpdateHistoryImplCopyWithImpl<$Res>
           : historyItem // ignore: cast_nullable_to_non_nullable
               as HistoryItem,
     ));
+  }
+
+  /// Create a copy of HistoryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $HistoryItemCopyWith<$Res> get historyItem {
+    return $HistoryItemCopyWith<$Res>(_value.historyItem, (value) {
+      return _then(_value.copyWith(historyItem: value));
+    });
   }
 }
 

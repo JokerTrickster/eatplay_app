@@ -1,32 +1,23 @@
 import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class HistoryItem extends Equatable {
-  final String id;
-  final String restaurantName;
-  final String visitDate;
-  final double rating;
-  final String review;
-  final String imageUrl;
-  final String category;
+part 'history_item.freezed.dart';
 
-  const HistoryItem({
-    required this.id,
-    required this.restaurantName,
-    required this.visitDate,
-    required this.rating,
-    required this.review,
-    required this.imageUrl,
-    required this.category,
-  });
-
-  @override
-  List<Object?> get props => [
-        id,
-        restaurantName,
-        visitDate,
-        rating,
-        review,
-        imageUrl,
-        category,
-      ];
+@freezed
+class HistoryItem with _$HistoryItem {
+  const factory HistoryItem({
+    required String id,
+    required String title,
+    required String description,
+    required DateTime date,
+    double? latitude,
+    double? longitude,
+    String? imageUrl,
+    // 추가 필드들
+    required String restaurantName,
+    required String visitDate,
+    required double rating,
+    required String category,
+    required String review,
+  }) = _HistoryItem;
 }

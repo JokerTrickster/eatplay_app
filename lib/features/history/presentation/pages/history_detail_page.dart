@@ -4,6 +4,7 @@ import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import '../bloc/history_bloc.dart';
 import '../../domain/entities/history_item.dart';
+import '../../../map/presentation/pages/kakao_map_page.dart';
 
 class HistoryDetailPage extends StatefulWidget {
   final HistoryItem historyItem;
@@ -47,9 +48,9 @@ class _HistoryDetailPageState extends State<HistoryDetailPage> {
     _selectedCategory = _categories.contains(widget.historyItem.category)
         ? widget.historyItem.category
         : '음식점';
-    _selectedImages = widget.historyItem.imageUrl.isNotEmpty
-        ? [File(widget.historyItem.imageUrl)]
-        : [];
+    _selectedImages = widget.historyItem.imageUrl?.isNotEmpty == true
+        ? [File(widget.historyItem.imageUrl!)]
+        : <File>[];
   }
 
   @override
@@ -137,6 +138,9 @@ class _HistoryDetailPageState extends State<HistoryDetailPage> {
     if (_formKey.currentState!.validate()) {
       final updatedHistoryItem = HistoryItem(
         id: widget.historyItem.id,
+        title: _titleController.text,
+        description: _reviewController.text,
+        date: _selectedDate,
         restaurantName: _titleController.text,
         visitDate:
             '${_selectedDate.year}-${_selectedDate.month.toString().padLeft(2, '0')}-${_selectedDate.day.toString().padLeft(2, '0')}',
@@ -144,6 +148,8 @@ class _HistoryDetailPageState extends State<HistoryDetailPage> {
         review: _reviewController.text,
         imageUrl: _selectedImages.isNotEmpty ? _selectedImages.first.path : '',
         category: _selectedCategory,
+        latitude: widget.historyItem.latitude,
+        longitude: widget.historyItem.longitude,
       );
 
       // Bloc에 수정 이벤트 발생
@@ -194,6 +200,22 @@ class _HistoryDetailPageState extends State<HistoryDetailPage> {
         backgroundColor: Colors.orange,
         foregroundColor: Colors.white,
         actions: [
+          // 위치 보기 버튼 추가
+          if (widget.historyItem.latitude != null &&
+              widget.historyItem.longitude != null)
+            IconButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => KakaoMapPage(
+                      selectedHistoryItem: widget.historyItem,
+                    ),
+                  ),
+                );
+              },
+              icon: const Icon(Icons.location_on),
+              tooltip: '위치 보기',
+            ),
           IconButton(
             onPressed: _showDeleteDialog,
             icon: const Icon(Icons.delete),
